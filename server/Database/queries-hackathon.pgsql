@@ -14,5 +14,3 @@ AND rating IS NOT NULL
 ORDER BY rating DESC
 LIMIT 10;
 
-
-SELECT * FROM Genres
