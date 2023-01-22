@@ -12,7 +12,6 @@ app.use(
 	})
 );
 
-
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
@@ -24,10 +23,17 @@ app.get('/', (request, response) => {
   response.json({ info: 'Node.js, Express, and Postgres API' })
 })
 
+// API Routes for Axios
 app.get('/users', db.getUsers)
+app.get('/allgenres', db.getAllGenres)
+
+//Port Listner
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
 })
+
+
+
 // const { Client } = require("pg")
 // const dotenv = require("dotenv")
 // dotenv.config()

@@ -21,6 +21,17 @@ const getUsers = (req, response) => {
     })
 }
 
+const getAllGenres  = (req, response) => {
+    pool.query('SELECT Genre, COUNT(Mid) as MovieCount FROM Genres GROUP BY Genre ORDER BY COUNT(Mid) ASC;', 
+    (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
 module.exports = {
-    getUsers
+    getUsers,
+    getAllGenres
 }
